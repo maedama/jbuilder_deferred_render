@@ -85,3 +85,14 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def count_queries &block
+  count = 0
+  counter_f = ->(name, started, finished, unique_id, payload) {
+    unless payload[:name].in? %w[ CACHE SCHEMA ]
+      count += 1
+    end
+  }
+  ActiveSupport::Notifications.subscribed(counter_f, "sql.active_record", &block)
+  count
+end

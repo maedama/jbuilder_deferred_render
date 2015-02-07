@@ -10,6 +10,7 @@ require "sprockets/railtie"
 
 Bundler.require(*Rails.groups)
 require "jbuilder_deferred_render"
+require "deferred_loader"
 
 module Dummy
   class Application < Rails::Application
