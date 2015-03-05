@@ -21,7 +21,7 @@ module JbuilderDeferredRender
               current_attrs = get_attributes(json)
               begin 
                 set_attributes(json, deferred_attrs)
-                defer.resolve(*results)
+                defer.resolve(promise.is_a?(Array) ? results : results[0])
               ensure
                 set_attributes(json, current_attrs)
               end
