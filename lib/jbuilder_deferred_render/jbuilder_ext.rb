@@ -9,7 +9,7 @@ module JbuilderDeferredRender
       deferred_attrs = get_attributes(json)
 
       Q.defer do |defer|
-        promises = promise.is_a?(Array) ? promise : [promise]
+        promises = *promise
         results = []
         resolved = 0
 
@@ -21,7 +21,7 @@ module JbuilderDeferredRender
               current_attrs = get_attributes(json)
               begin 
                 set_attributes(json, deferred_attrs)
-                defer.resolve(result)
+                defer.resolve(*results)
               ensure
                 set_attributes(json, current_attrs)
               end
