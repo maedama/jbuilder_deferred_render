@@ -2,8 +2,6 @@
 lib = File.expand_path('../lib', __FILE__)
 
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-$LOAD_PATH.unshift("/home/ec2-user/gitrepos/deferred_loader/lib")
-$LOAD_PATH.unshift("/home/ec2-user/gitrepos/jbuilder_deferred_render/vendor/bundle/ruby/2.1.0/gems")
 require 'jbuilder_deferred_render/version'
 
 Gem::Specification.new do |spec|
