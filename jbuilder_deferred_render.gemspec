@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "rspec-rails"
   spec.add_development_dependency "json_spec"
+  spec.add_dependency "deferred_loader", "~> 0.0.1"
   spec.add_dependency "q-defer", "~> 0.0.1"
   
 
