@@ -1,6 +1,6 @@
 # JbuilderDeferredRender
 
-#jbuilder-deferred-render
+## Motivation
 
 Jbuilder deferred render allows you to avoid n+1 problem directly by template.
 
