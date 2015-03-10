@@ -1,5 +1,9 @@
 # JbuilderDeferredRender
 
+This is a gem that allows to avoid n+1 problem in view layer by introducing defered loading resource syntaxes.
+
+THIS GEM IS CURRENTLY ALPHA QUALITY. IT IS USED ALREADY IN PRODUCTION BUT IT HAS SOME ISSUES
+
 ## Motivation
 
 Jbuilder deferred render allows you to avoid n+1 problem directly by template.
