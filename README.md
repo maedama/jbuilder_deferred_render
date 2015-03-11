@@ -56,7 +56,21 @@ Instead of above approach, this gems allows to avoid n+1 problem in view layer b
   end
 ```
 
-This will only cause 2 queries like bellow
+Which would render json like
+```
+[
+  {
+    "name": "foo",
+    "favorite_book": {
+      "name": "var",
+      "author": "hoge"
+    }
+  },
+  ...
+]
+```
+
+With only  3 queries like bellow
 
 ```
 SELECT * FROM users ORDER BY id DESC LIMIT 10;
