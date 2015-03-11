@@ -42,9 +42,16 @@ Instead of above approach, this gems allows to avoid n+1 problem in view layer b
   json.array! @users do |user|
     json.name user.name
     json.when(
-      user.deferred_load.books
-    ).then do |books|
-      json.books books, :title
+      user.deferred_load.favorite_book
+    ).then do |book|
+      json.favorite_book do
+        json.title book.title
+        json.when(
+          book.deferred_load.author
+        ).then do |author|
+          json.author author.name
+        end
+      end
     end
   end
 ```
@@ -54,6 +61,7 @@ This will only cause 2 queries like bellow
 ```
 SELECT * FROM users ORDER BY id DESC LIMIT 10;
 SELECT * FROM books where user_id in (?, ?, ?, ?, ?, ?, ?, ?, ?)
+SELECT * FROM authors where author_id in (?, ?, ?, ?, ?, ?, ?, ?, ?)
 ```
 
 ## Installation
